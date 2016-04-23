@@ -1,7 +1,4 @@
 #!/usr/bin/env bash
 
-dir=`dirname $0`
-
-PROFILE=${1:-Default}
-
-$dir/install.sh -s light -p $PROFILE
+dir=`dirname "$0"`
+source $dir/src/set_theme_default_profile.sh light $1

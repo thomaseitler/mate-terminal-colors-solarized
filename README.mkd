@@ -37,6 +37,9 @@ Then you can run the installation script:
 
 And just follow the instructions.
 
+You can also run the `set_dark.sh` or `set_light.sh` script, to directly set
+the dark or light solarized theme to the actived gnome-terminal profile.
+
 Uninstall
 ---------
 
@@ -46,6 +49,7 @@ by running:
 ### Gnome 3.6 or lower
 
     $ rm -r ~/.gconf/apps/gnome-terminal/profiles/Solarized/
+    $ gconftool-2 --recursive-unset /apps/gnome-terminal
 
 ### Gnome 3.8 or higher
 
@@ -56,11 +60,25 @@ Be sure to have the dconf-cli package installed and do:
 Replace PROFILE_ID by your profile ID (you can get it in your profile
 configuration in gnome-terminal).
 
+Themes
+------
+
+Each theme has is own folder in the `colors` dir. It contains the following
+files:
+
+  * bd_color: bold color
+  * bg_color: background color
+  * fg_color: foreground color
+  * palette: list of colors for all standard color codes.
+
+No additional configuration is needed to add a theme, the installation script
+just list at launch the children folders in the `colors` dir.
+
 Contributors
 ------------
 
 * Sigurd Gartmann <sigurdga@sigurdga.no>
-* Anthony Ruhier </Anthony25>
+* Anthony Ruhier <anthony.ruhier@gmail.com>
 * Paul Thomson <captbunzo@gmail.com>
 * Techlive Zheng <techlivezheng@gmail.com>
 * Daniel Graña <dangra@gmail.com>
@@ -76,7 +94,21 @@ colors.
 
     set t_Co=16
 
+Mate terminal compatibility
+---------------------------
+
+This script has to stay simple, and including Mate compatibility is not what I
+want, even if there is not a lot of changes between Mate-Terminal and
+Gnome-Terminal. Moreover, I do not use Mate so I would only test the script
+quickly in a virtual machine, and it is not the main platform target.
+
+However, I invite anybody to fork this script and to include the modifications
+for Mate (michel-slm already did the job in the pull-request #39, many thanks
+to him !). If it is maintained (like pulling the new commits from this repo
+and following the Mate Terminal changes), I will quote the forked repo in this
+readme.
+
 [Solarized homepage]:   http://ethanschoonover.com/solarized
 [Solarized repository]: https://github.com/altercation/solarized
 [Gnome Terminal Colors Solarized repository]: https://github.com/sigurdga/gnome-terminal-colors-solarized
-[dircolors]: https://github.com/seebi/dircolors-solarized
+[dircolors solarised color theme]: https://github.com/seebi/dircolors-solarized
