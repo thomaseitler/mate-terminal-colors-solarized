@@ -1,9 +1,14 @@
-Solarized Colorscheme for Gnome Terminal
+Solarized Colorscheme for MATE Terminal
 ========================================
 
-Scripts for setting the Solarized color set with Gnome Terminal. To get nicely
+Scripts for setting the Solarized color set with MATE Terminal. To get nicely
 colored directory listings, you will also need to set up a [dircolors solarised
 color theme].
+
+This is a fork from 
+[gnome-terminal-solarized](https://github.com/Anthony25/gnome-terminal-colors-solarized) 
+with minimal edits to enable it to work in MATE. Original porting done by 
+[michel-slm](https://github.com/michel-slm/gnome-terminal-colors-solarized)
 
 Colors
 ------
@@ -23,10 +28,10 @@ Solarized repository].
 Installation and usage
 ----------------------
 
-To be able to uninstall, we highly recommend that you create a new Gnome
-Terminal profile, using the menus in Gnome Terminal.
+To be able to uninstall, we highly recommend that you create a new MATE
+Terminal profile, using the menus in MATE Terminal.
 
-You need the `dconf` command (if you run a recent Gnome version). With Ubuntu,
+You need the `dconf` command (if you run a recent MATE version). With Ubuntu,
 this can be installed by running
 
     $ sudo apt-get install dconf-cli
@@ -37,28 +42,28 @@ Then you can run the installation script:
 
 And just follow the instructions.
 
-You can also run the `set_dark.sh` or `set_light.sh` script, to directly set
-the dark or light solarized theme to the actived gnome-terminal profile.
+The `set_dark.sh` and `set_light.sh` scripts in the original repo are not 
+supported for MATE.
 
 Uninstall
 ---------
 
-Change to another profile in Gnome Terminal, then remove the Solarized profile
+Change to another profile in MATE Terminal, then remove the Solarized profile
 by running:
 
-### Gnome 3.6 or lower
+### MATE 1.6 or lower
 
-    $ rm -r ~/.gconf/apps/gnome-terminal/profiles/Solarized/
-    $ gconftool-2 --recursive-unset /apps/gnome-terminal
+    $ rm -r ~/.gconf/apps/mate-terminal/profiles/Solarized/
+    $ gconftool-2 --recursive-unset /apps/mate-terminal
 
-### Gnome 3.8 or higher
+### MATE 1.6 or higher
 
 Be sure to have the dconf-cli package installed and do:
 
-    $ dconf reset -f /org/gnome/terminal/legacy/profiles:/PROFILE_ID"
+    $ dconf reset -f /org/mate/terminal/profiles/PROFILE_ID"
 
 Replace PROFILE_ID by your profile ID (you can get it in your profile
-configuration in gnome-terminal).
+configuration in mate-terminal).
 
 Themes
 ------
@@ -93,20 +98,6 @@ Use the 16 colors terminal option to get VIM to look like GVIM with solarized
 colors.
 
     set t_Co=16
-
-Mate terminal compatibility
----------------------------
-
-This script has to stay simple, and including Mate compatibility is not what I
-want, even if there is not a lot of changes between Mate-Terminal and
-Gnome-Terminal. Moreover, I do not use Mate so I would only test the script
-quickly in a virtual machine, and it is not the main platform target.
-
-However, I invite anybody to fork this script and to include the modifications
-for Mate (michel-slm already did the job in the pull-request #39, many thanks
-to him !). If it is maintained (like pulling the new commits from this repo
-and following the Mate Terminal changes), I will quote the forked repo in this
-readme.
 
 [Solarized homepage]:   http://ethanschoonover.com/solarized
 [Solarized repository]: https://github.com/altercation/solarized
