@@ -42,9 +42,6 @@ Then you can run the installation script:
 
 And just follow the instructions.
 
-The `set_dark.sh` and `set_light.sh` scripts in the original repo are not 
-supported for MATE.
-
 Uninstall
 ---------
 
@@ -98,6 +95,13 @@ Use the 16 colors terminal option to get VIM to look like GVIM with solarized
 colors.
 
     set t_Co=16
+
+Where did `set_dark.sh` and `set_light.sh` go?
+----------------------------------------------
+
+The `set_dark.sh` and `set_light.sh` scripts in the original repo are not 
+supported for MATE. Use `install.sh` to install the color scheme.
+
 
 [Solarized homepage]:   http://ethanschoonover.com/solarized
 [Solarized repository]: https://github.com/altercation/solarized
