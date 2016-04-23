@@ -23,7 +23,7 @@ show_help() {
   echo "    -s, --scheme"
   echo "        Color scheme to be used"
   echo "    -p, --profile"
-  echo "        Gnome Terminal profile to overwrite"
+  echo "        MATE Terminal profile to overwrite"
   echo
 }
 
@@ -45,8 +45,8 @@ set_profile_colors() {
     then local profile_path=$dconfdir/$profile
 
     # set color palette
-    dconf write $profile_path/palette "$(to_dconf < $scheme_dir/palette)"
-
+    # MATE still uses the gconf format on the dconf key.
+    dconf write $profile_path/palette \'"$(to_gconf < $scheme_dir/palette)"\'
     # set foreground, background and highlight color
     dconf write $profile_path/bold-color "'$(cat $bd_color_file)'"
     dconf write $profile_path/background-color "'$(cat $bg_color_file)'"
@@ -82,15 +82,15 @@ set_profile_colors() {
 interactive_help() {
   echo
   echo -en "This script will ask you which color scheme you want, and which "
-  echo -en "Gnome Terminal profile to overwrite.\n"
+  echo -en "MATE Terminal profile to overwrite.\n"
   echo
   echo -en "Please note that there is no uninstall option yet. If you do not "
   echo -en "wish to overwrite any of your profiles, you should create a new "
   echo -en "profile before you run this script. However, you can reset your "
-  echo -en "colors to the Gnome default, by running:\n"
+  echo -en "colors to the MATE default, by running:\n"
   echo
-  echo "    Gnome >= 3.8 dconf reset -f /org/gnome/terminal/legacy/profiles:/"
-  echo "    Gnome < 3.8 gconftool-2 --recursive-unset /apps/gnome-terminal"
+  echo "    MATE >= 1.6 dconf reset -f /org/mate/terminal/profiles/"
+  echo "    MATE < 1.6 gconftool-2 --recursive-unset /apps/mate-terminal"
   echo
   echo -en "By default, it runs in the interactive mode, but it also can be "
   echo -en "run non-interactively, just feed it with the necessary options, "
