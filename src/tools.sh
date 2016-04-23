@@ -1,15 +1,15 @@
 #!/usr/bin/env bash
-gnomeVersion="$(expr "$(gnome-terminal --version)" : '.* \(.*[.].*[.].*\)$')"
+gnomeVersion="$(expr "$(mate-terminal --version)" : '.* \(.*[.].*[.].*\)$')"
 
-# newGnome=1 if the gnome-terminal version >= 3.8
-if [[ ("$(echo "$gnomeVersion" | cut -d"." -f1)" = "3" && \
-       "$(echo "$gnomeVersion" | cut -d"." -f2)" -ge 8) || \
-       "$(echo "$gnomeVersion" | cut -d"." -f1)" -ge 4 ]]
+# newGnome=1 if the mate-terminal version >= 1.6
+if [[ ("$(echo "$gnomeVersion" | cut -d"." -f1)" = "1" && \
+       "$(echo "$gnomeVersion" | cut -d"." -f2)" -ge 6) || \
+       "$(echo "$gnomeVersion" | cut -d"." -f1)" -ge 2 ]]
   then newGnome="1"
-  dconfdir=/org/gnome/terminal/legacy/profiles:
+  dconfdir=/org/mate/terminal/profiles
 else
   newGnome=0
-  gconfdir=/apps/gnome-terminal/profiles
+  gconfdir=/apps/mate-terminal/profiles
 fi
 
 die() {

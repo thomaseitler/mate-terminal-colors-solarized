@@ -1,12 +1,12 @@
 #!/usr/bin/env bash
 
-gnomeVersion="$(expr "$(gnome-terminal --version)" : '.* \(.*[.].*[.].*\)$')"
+# gnomeVersion="$(expr "$(mate-terminal --version)" : '.* \(.*[.].*[.].*\)$')"
 dircolors_checked=false
 
 
 declare -a profiles
 if [ "$newGnome" = "1" ]
-  then profiles=($(dconf list $dconfdir/ | grep ^: | sed 's/\///g'))
+  then profiles=($(dconf list $dconfdir/ | sed 's/\///g'))
 else
   profiles=($(gconftool-2 -R $gconfdir | grep $gconfdir | cut -d/ -f5 |  \
            cut -d: -f1))
@@ -87,7 +87,7 @@ interactive_select_profile() {
 
   set -- "${profile_names[@]}"
 
-  echo "Please select a Gnome Terminal profile:"
+  echo "Please select a profile:"
   select profile_name
   do
     if [[ -z $profile_name ]]
