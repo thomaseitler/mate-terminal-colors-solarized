@@ -102,8 +102,19 @@ Where did `set_dark.sh` and `set_light.sh` go?
 The `set_dark.sh` and `set_light.sh` scripts in the original repo are not 
 supported for MATE. Use `install.sh` to install the color scheme.
 
+The install ran without error, but nothing happened.
+----------------------------------------------------
 
-[Solarized homepage]:   http://ethanschoonover.com/solarized
+First, ensure you are using the profile you installed the solarized
+color scheme to.
+
+Second, close all open MATE terminals and reopen them.
+
+If this still doesn't work, please [file a bug report].
+
+
+[Solarized homepage]:  http://ethanschoonover.com/solarized
 [Solarized repository]: https://github.com/altercation/solarized
 [Gnome Terminal Colors Solarized repository]: https://github.com/sigurdga/gnome-terminal-colors-solarized
 [dircolors solarised color theme]: https://github.com/seebi/dircolors-solarized
+[file a bug report]: https://github.com/cledoux/mate-terminal-colors-solarized/issues/new
