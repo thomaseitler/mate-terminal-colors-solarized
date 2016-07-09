@@ -86,6 +86,7 @@ Contributors
 * Paul Thomson <captbunzo@gmail.com>
 * Techlive Zheng <techlivezheng@gmail.com>
 * Daniel Graña <dangra@gmail.com>
+* Charles LeDoux <charles@charlesledoux.com>
 
 FAQ
 ===
